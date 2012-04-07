@@ -1,6 +1,7 @@
 RailsDemo::Application.routes.draw do
   devise_for :users
 
+  resources :notes
   resources :users
 
   root :to => "home#index"
