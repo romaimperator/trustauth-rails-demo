@@ -1,0 +1,24 @@
+<h1>Listing notes</h1>
+
+<div class="row">
+  <div class="span9">
+
+    <table class="table table-striped">
+      <tr>
+        <th class="span7">Note</th>
+        <th class="span2"></th>
+      </tr>
+
+    <% @notes.each do |note| %>
+      <tr>
+        <td><%= note.note %></td>
+        <td><%= link_to 'Destroy', note, confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+    </table>
+
+  </div>
+</div>
+<div class="row">
+  <%= render 'form' %>
+</div>

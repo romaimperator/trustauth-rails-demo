@@ -1,0 +1,72 @@
+<div class="hero-unit">
+  <h1>Hello and welcome to the demo site for TrustAuth.</h1>
+</div>
+<div class="row">
+  <div class="span4">
+    <h3>What is TrustAuth?</h3>
+    <p>TrustAuth is a system for authenticating users without using passwords.
+    Instead it uses public key cryptography and RSA authentication. These technologies
+    allow users to be authenticated securely and more easily than with
+    traditional passwords.</p>
+  </div>
+  <div class="span4">
+    <h3>How do I add TrustAuth to a site?</h3>
+    <p>Allowing users to authenticate using TrustAuth is easy. There are just a few simple steps to
+    follow to use the PHP script and get Foamication up and running on your website.</p>
+    <p><%= link_to "See Details", "#server", :class => "btn" %></p>
+  </div>
+  <div class="span4">
+    <h3>How can I get TrustAuth?</h3>
+    <p>Using TrustAuth to login to websites is also easy. All you need to do is install the Foamicator
+    addon in your browser and you are ready to use the enhanced security provided by TrustAuth.</p>
+    <p><%= link_to "Get the addon!", "https://addons.mozilla.org/en-US/firefox/addon/foamicator/", :class => "btn-large btn-success" %></p>
+  </div>
+</div>
+<div id="info-row-2" class="row">
+  <div class="span4">
+    <h3>How does TrustAuth work?</h3>
+    <p>The server authenticates the client and uses the public key to associate the client
+    with an account. The addon then takes the user to a url based on success or failure. Private keys are
+    stored in a local SQLite database secured with 256-bit AES encryption.</p>
+    <p><%= link_to "See Details", "#technical", :class => "btn" %></p>
+  </div>
+  <div class="span4">
+    <h3>Who Am I?</h3>
+    <p>My name is Dan Fox and I'm a graduate student at Southern Illinois University Edwardsville.
+    I created TrustAuth to help fix the current issues with using passwords for authentication on websites. If
+    you feel you have a better name don't hesitate to email me with the subject "TrustAuth".</p>
+    <div class="btn-group">
+      <%= link_to (image_tag "email.png"), "mailto:romaimperator@gmail.com", :class => "btn" %>
+      <%= link_to (image_tag "twitter_newbird_blue.png"), "https://twitter.com/romaimperator", :class =>"btn" %>
+      <%= link_to (image_tag "github.png"), "https://github.com/romaimperator", :class =>"btn" %>
+    </div>
+  </div>
+  <div class="span4">
+    <h3>Project Links</h3>
+    <p>Here are the links to the source code for the PHP script, this demo site, and the Firefox addon. All
+    code written by me is released under the <a class="non-breaking" href="http://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause License</a>.
+    Project IRC hosted on Freenode in #trustauth.</p>
+    <ul class="unstyled">
+      <li><%= link_to "Project Roadmap", "https://github.com/romaimperator/trustauth-firefox/wiki/Roadmap" %></li>
+      <li><%= link_to "Get the addon source", "https://github.com/romaimperator/trustauth-firefox" %></li>
+      <li><%= link_to "omniauth-trustauth", "https://github.com/romaimperator/omniauth-trustauth" %></li>
+      <li><%= link_to "Get the PHP script", "https://github.com/romaimperator/trustauth-php" %></li>
+      <li><%= link_to "Get the demo site source", "https://github.com/romaimperator/trustauth-demo" %></li>
+    </ul>
+  </div>
+</div>
+<section id="tutorial">
+  <%= render 'tutorial' %>
+</section>
+<section id="server">
+  <%= render 'server_details' %>
+</section>
+<section id="technical">
+  <%= render 'technical_details' %>
+</section>
+<hr>
+<footer class="footer">
+  <p>Dan Fox</p>
+</footer>
+</div>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
