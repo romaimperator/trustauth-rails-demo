@@ -1,23 +1,28 @@
 <h1>Listing notes</h1>
 
-<table>
-  <tr>
-    <th>Note</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="row">
+  <div class="span9">
 
-<% @notes.each do |note| %>
-  <tr>
-    <td><%= note.note %></td>
-    <td><%= link_to 'Show', note %></td>
-    <td><%= link_to 'Edit', edit_note_path(note) %></td>
-    <td><%= link_to 'Destroy', note, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+    <table class="table table-striped">
+      <tr>
+        <th>Note</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
 
-<br />
+    <% @notes.each do |note| %>
+      <tr>
+        <td><%= note.note %></td>
+        <td><%= link_to 'Show', note %></td>
+        <td><%= link_to 'Edit', edit_note_path(note) %></td>
+        <td><%= link_to 'Destroy', note, confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+    </table>
 
-<%= link_to 'New Note', new_note_path %>
+  </div>
+</div>
+<div class="row">
+  <%= render 'form' %>
+</div>

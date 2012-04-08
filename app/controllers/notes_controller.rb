@@ -4,6 +4,7 @@ class NotesController < ApplicationController
   # GET /notes.json
   def index
     @notes = current_user.notes.all
+    @note  = current_user.notes.build
 
     respond_to do |format|
       format.html # index.html.erb
