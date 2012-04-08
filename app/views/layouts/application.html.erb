@@ -7,12 +7,21 @@
   <%= csrf_meta_tags %>
   <%= trustauth_url %>
 </head>
-<body>
+<body onload="window.prettyPrint && prettyPrint()">
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <div class="container">
+    <% if notice %><p class="notice"><%= notice %></p><% end %>
+    <% if alert %><p class="alert"><%= alert %></p><% end %>
+    <% if user_signed_in? %>
+      <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "pull-right" %>
+    <% end %>
+    <div class="row">
+      <div class="span12">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 
-<%= yield %>
 
 </body>
 </html>
