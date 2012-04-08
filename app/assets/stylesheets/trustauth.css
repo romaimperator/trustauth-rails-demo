@@ -9,9 +9,12 @@ body {
   margin-top: 25px;
 }
 
-.foamicator-tutorial-li {
+.trustauth-tutorial-li {
   padding-bottom: 40px;
 }
-.foamicator-tutorial-img {
+.trustauth-tutorial-img {
   margin-top: 20px;
+}
+.trustauth-server-pad20 {
+  padding: 20px 0;
 }

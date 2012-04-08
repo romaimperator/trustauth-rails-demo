@@ -3,26 +3,31 @@
     <h1>Server Setup Details</h1>
   </div>
   <div class="span12">
-    <h3>To add Foamicate support to your server there's only a few simple steps:</h3>
-      <ol class="linenums">
-        <li>
-          <p>Add a url in a hidden input field to every page you want to allow the user to login on.  This special field just needs to have the id "foamicate_url" and a value of the url that the Foamicator addons can authenticate with. Note: this URL must be absolute not relative.</p>
-          <p><code class="prettyprint">&lt;input type="hidden" id="foamicate_url" value="your_authentication_handler_url"&gt;</code></p>
-        </li>
-        <li>
-          <p>Add the public key storage to your database.</p>
-        </li>
-        <li>
-          <p>Add the server side authentication procedure to your website.</p>
-          <h5>There will soon be provided solutions for:</h5>
-          <ul>
-            <li>CakePHP</li>
-            <li>Rails</li>
-          </ul>
-          <p>For now you should be able to get something working using the PHP library that I've written. Here is an example using the authentication code running live on this site:</p>
-          <pre class="prettyprint linenums lang-html">
+    <h2>Supported Web Frameworks</h2>
+    <p>Currently there are plugins to add TrustAuth support for the following list:</p>
+    <ul>
+      <li>Ruby on Rails 3.0 via an Omniauth strategy available <%= link_to "here on github.com", "https://github.com/romaimperator/omniauth-trustauth" %>.</li>
+    </ul>
+    <p>The following list will soon be supported:</p>
+    <ul>
+      <li>CakePHP</li>
+    </ul>
+    <p class="trustauth-server-pad20">Feel free to add support for other frameworks. I will be happy to add links to plugins to the supported list.</p>
+    <p>If your framework isn't currently supported or you are running custom PHP you can use the PHP script to add support for TrustAuth.</p>
+    <ol class="linenums">
+      <li>
+        <p>Add a url in a meta tag to every page you want to allow the user to login on.  This meta tag just needs to have the name "trustauth" and a content of the url that the TrustAuth addons can authenticate with.</p>
+        <p><code class="prettyprint">&lt;meta name="trustauth" content="your_authentication_handler_url"/&gt;</code></p>
+      </li>
+      <li>
+        <p>Add the public key storage to your database.</p>
+      </li>
+      <li>
+        <p>Add the server side authentication procedure to your website.</p>
+        <p>Here is an example of the PHP script that will respond to the authentication handler url you put in the meta tag using the TrustAuth library:</p>
+        <pre class="prettyprint linenums lang-html">
 &lt;?php
-include('foamicatee.php');
+include('trustauth.php');
 
 // Start the session
 session_start();
@@ -49,7 +54,7 @@ if ( ! $_SESSION['authenticating']) {
     );
 
     // Get the challenge to transmit to the server
-    $result = Foamicatee::get_challenge($user);
+    $result = TrustAuth::get_challenge($user);
 
     // Store the information required for the next part of authentication
     $_SESSION['server'] = $result['server'];
@@ -67,7 +72,7 @@ else {
 
     // If these keys are not set then the addon and the server are out of sync so tell the addon to start over
     if ( ! isset($_POST['md5']) || ! isset($_POST['sha'])) {
-        $result = Foamicatee::wrong_stage();
+        $result = TrustAuth::wrong_stage();
     }
     else {
         // Add the challenge response to the user information
@@ -75,7 +80,7 @@ else {
         $user['sha'] = $_REQUEST['sha'];
 
         // Attempt to authenticate the data
-        $result = Foamicatee::authenticate($user, $server, SUCCESS_URL, FAIL_URL);
+        $result = TrustAuth::authenticate($user, $server, SUCCESS_URL, FAIL_URL);
 
         // $result['status'] is true if the authentication was successful
         if ($result['status']) {
@@ -91,8 +96,8 @@ else {
     echo $result['json'];
 }
 ?&gt;
-          </pre>
-        </li>
-      </ol>
+        </pre>
+      </li>
+    </ol>
   </div>
 </div>
