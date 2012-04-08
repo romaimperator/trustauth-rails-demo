@@ -19,7 +19,11 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: mysql2
+  database: trustauth
+  host: localhost
+  port: 3306
+  user: root
+  password: <replace_me>
   pool: 5
   timeout: 5000

@@ -76,6 +76,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.18)
     multi_json (1.2.0)
+    mysql2 (0.3.11)
     omniauth (1.0.3)
       hashie (~> 1.2)
       rack
@@ -141,6 +142,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails
+  mysql2
   omniauth-trustauth!
   rails (= 3.2.3)
   sass-rails (~> 3.2.3)

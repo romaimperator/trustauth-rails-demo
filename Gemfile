@@ -8,6 +8,7 @@ gem 'rails', '3.2.3'
 gem 'sqlite3'
 gem 'devise'
 gem 'omniauth-trustauth', :git => 'git://github.com/romaimperator/omniauth-trustauth.git'
+gem 'mysql2'
 
 
 # Gems used only for assets and not required
