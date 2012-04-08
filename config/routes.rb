@@ -3,7 +3,9 @@ RailsDemo::Application.routes.draw do
 
   resources :notes
 
-  root :to => "home#index"
+  root :to => "static#index"
+
+  match ':action' => 'static#:action'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
