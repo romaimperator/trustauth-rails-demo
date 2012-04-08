@@ -14,8 +14,6 @@
     <% @notes.each do |note| %>
       <tr>
         <td><%= note.note %></td>
-        <td><%= link_to 'Show', note %></td>
-        <td><%= link_to 'Edit', edit_note_path(note) %></td>
         <td><%= link_to 'Destroy', note, confirm: 'Are you sure?', method: :delete %></td>
       </tr>
     <% end %>
