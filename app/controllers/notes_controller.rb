@@ -46,10 +46,11 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if current_user.notes << @note
-        format.html { redirect_to @note, notice: 'Note was successfully created.' }
-        format.json { render json: @note, status: :created, location: @note }
+        format.html { redirect_to notes_path, notice: 'Note was successfully created.' }
+        format.json { render json: @note, status: :created, location: notes_path }
       else
-        format.html { render action: "new" }
+        @notes = current_user.notes.all
+        format.html { render action: "index" }
         format.json { render json: @note.errors, status: :unprocessable_entity }
       end
     end
@@ -62,7 +63,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.update_attributes(params[:note])
-        format.html { redirect_to @note, notice: 'Note was successfully updated.' }
+        format.html { redirect_to notes_path, notice: 'Note was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
