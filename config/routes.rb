@@ -2,7 +2,6 @@ RailsDemo::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => 'users/omniauth_callbacks' }
 
   resources :notes
-  resources :users
 
   root :to => "home#index"
   # The priority is based upon order of creation:
