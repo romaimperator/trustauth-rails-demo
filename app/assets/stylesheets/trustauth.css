@@ -1,16 +1,10 @@
 .hero-unit {
   background-color: #202328;
 }
-a {
-  color: #9ea3a8;
-}
-a:hover {
-  color: #9ea3a8;
-}
 
 body {
   padding-top: 60px;
-  color: #FFFFFF;
+  color: #BBBFC2;
 }
 .footer {
   padding: 35px 0 36px;
