@@ -15,12 +15,22 @@ p {
 .footer {
   margin-top: 20px;
   padding-top: 25px;
+  padding-bottom: 35px;
 }
-.footer li {
+.attributions {
+  border-top: 1px solid #1C1E22;
+  margin-top: 20px;
+  padding-top: 25px;
+  font-size: 16px;
+}
+.attributions p {
+  color: #757C82;
+}
+.attributions li {
   padding-top: 15px;
   line-height: 24px;
 }
-.footer hr {
+hr.attributions {
   margin-top: 20px;
   margin-bottom: 20px;
 }
