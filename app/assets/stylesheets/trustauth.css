@@ -3,11 +3,26 @@
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 80px;
   color: #BBBFC2;
+  font-size: 16px;
+  line-height: 22px;
+}
+p {
+  font-size: 16px;
+  line-height: 22px;
 }
 .footer {
-  padding: 35px 0 36px;
+  margin-top: 20px;
+  padding-top: 25px;
+}
+.footer li {
+  padding-top: 15px;
+  line-height: 24px;
+}
+.footer hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #info-row-2 {
@@ -20,6 +35,61 @@ body {
 .trustauth-tutorial-img {
   margin-top: 20px;
 }
+.trustauth-pad10 {
+  padding-top: 10px;
+}
 .trustauth-pad20 {
   padding: 20px 0;
+}
+.trustauth-pad30 {
+  padding-top: 30px;
+}
+.trustauth-pad20r {
+  padding-right: 20px;
+}
+.trustauth-pad20h {
+  padding: 0 10px;
+}
+
+h2,h3,h4,h5 {
+  padding: 15px 0;
+}
+
+#main-text {
+  font-size: 40px;
+  line-height: 40px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.main-btn {
+  font-size: 20px;
+  line-height: 20px;
+  padding: 20px;
+  width: 200px;
+}
+
+.horizontal li {
+  display: inline;
+}
+
+.small-text {
+  font-size: 13px;
+}
+
+.trust-tan {
+  color: #BBBFC2;
+}
+.auth-green {
+  color: #5BB65B;
+}
+
+.nav > li > a, .nav > li > a:hover, .nav > li.active > a, .nav > li.active > a:hover, .nav-tabs.nav-stacked > li > a, .nav-tabs.nav-stacked > li > a:hover {
+  font-weight: normal;
+}
+
+.nav > li.active > a {
+  /*font-weight: bold;*/
 }

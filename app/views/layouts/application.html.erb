@@ -3,22 +3,67 @@
 <head>
   <title>TrustAuth</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= stylesheet_link_tag((request.fullpath == root_path ? "root" : "application"), :media => "all") %>
+  <%= stylesheet_link_tag("root", :media => "all") %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <%= trustauth_url %>
 </head>
 <body onload="window.prettyPrint && prettyPrint()">
 
   <div class="container">
-    <% if notice %><p class="notice"><%= notice %></p><% end %>
-    <% if alert %><p class="alert"><%= alert %></p><% end %>
-    <% if user_signed_in? %>
-      <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "pull-right" %>
-    <% end %>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a href="/" class="brand"><span class="trust-tan">Trust</span><span class="auth-green">Auth</span></a>
+          <ul class="nav">
+            <%= nav_button "/overview", link_to("Overview", "overview") %>
+            <%= nav_button "/tutorial", link_to("Add-on Tutorial", "tutorial") %>
+            <%= nav_button "/server_details", link_to("WordPress Plugin", "server_details") %>
+            <%= nav_button "/technical_details", link_to("Technical Details", "technical_details") %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <div class="row">
       <div class="span12">
         <%= yield %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="span12">
+        <footer class="footer">
+          <div class="row">
+            <div class="span8 offset2">
+              <p>My name is Dan Fox and I'm a graduate student at Southern Illinois University Edwardsville.
+              I created TrustAuth to help fix the current issues with using passwords for authentication on websites. If you
+              have questions feel free to join the project IRC in #trustauth on Freenode.</p>
+            </div>
+            <div class="span8 offset2">
+              <p>I would like to thank the following people and groups:</p>
+              <ul>
+                <li><%= link_to "Security Now!", "http://twit.tv/sn" %>,
+                <%= link_to "Steve Gibson", "https://twitter.com/#!/SGgrc" %>, and
+                <%= link_to "Leo Laporte", "http://leoville.com/" %> for teaching
+                me all about security and for providing a great podcast week after week.</li>
+                <li><%= link_to "CodeSchool", "http://www.codeschool.com/" %> for ideas and a starting theme for
+                the slides. Also for being such an awesome company helping people learn programming in a better way.</li>
+                <li><%= link_to "Chris Oliver", "http://excid3.com/" %> for design ideas, project ideas, and general awesomeness.</li>
+                <li><%= link_to "Kyle Knight", "https://twitter.com/#!/idpro" %> for design tips and ideas and some javascript help.</li>
+                <li><%= link_to "Travis McCrea", "http://travismccrea.com" %> for the project name "TrustAuth".</li>
+              </ul>
+            </div>
+          </div>
+          <hr>
+          <div class="row trustauth-pad10">
+            <div class="span12 small-text text-center">
+              <span class="trustauth-pad20h">&copy; 2012 Dan Fox</span> |
+              <%= link_to "email me", "mailto:romaimperator@gmail.com", :class => "trustauth-pad20h" %> |
+              <%= link_to "tweet me", "https://twitter.com/romaimperator", :class => "trustauth-pad20h" %> |
+              <%= link_to "checkout my GitHub", "https://github.com/romaimperator", :class => "trustauth-pad20h" %>
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
   </div>
