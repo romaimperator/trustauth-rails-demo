@@ -15,10 +15,10 @@
         <div class="container">
           <a href="/" class="brand"><span class="trust-tan">Trust</span><span class="auth-green">Auth</span></a>
           <ul class="nav">
-            <li><%= link_to "Overview", "overview", :class => "active" %></li>
-            <li><%= link_to "Add-on Tutorial", "tutorial", :class => "" %></li>
-            <li><%= link_to "WordPress Plugin", "server_details", :class => "" %></li>
-            <li><%= link_to "Technical Details", "technical_details", :class => "" %></li>
+            <%= nav_button "/overview", link_to("Overview", "overview") %>
+            <%= nav_button "/tutorial", link_to("Add-on Tutorial", "tutorial") %>
+            <%= nav_button "/server_details", link_to("WordPress Plugin", "server_details") %>
+            <%= nav_button "/technical_details", link_to("Technical Details", "technical_details") %>
           </ul>
         </div>
       </div>
