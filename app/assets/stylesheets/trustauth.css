@@ -99,7 +99,3 @@ h2,h3,h4,h5 {
 .nav > li > a, .nav > li > a:hover, .nav > li.active > a, .nav > li.active > a:hover, .nav-tabs.nav-stacked > li > a, .nav-tabs.nav-stacked > li > a:hover {
   font-weight: normal;
 }
-
-.nav > li.active > a {
-  /*font-weight: bold;*/
-}
