@@ -6,13 +6,15 @@
 # See also http://unicorn.bogomips.org/examples/unicorn.conf.rb for
 # a more verbose configuration using more features.
 
-app_path = "<app_path>"
+app_path = "/home/deploy/TrustAuth/current"
+cap_root = "/home/deploy/TrustAuth"
+app_shared = "#{cap_root}/shared"
 
 working_directory "#{app_path}"
 listen 2007, :tcp_nopush => true # by default Unicorn listens on port 8080
 timeout 30
 user "deploy", "deploy"
 worker_processes 4 # this should be >= nr_cpus
-pid "#{app_path}/../unicorn.pid"
-stderr_path "#{app_path}/log/unicorn.log"
-stdout_path "#{app_path}/log/unicorn.log"
+pid "#{app_shared}/pids/unicorn.pid"
+stderr_path "#{app_shared}/log/unicorn.log"
+stdout_path "#{app_shared}/log/unicorn.log"
