@@ -3,19 +3,13 @@
 <head>
   <title>TrustAuth</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= stylesheet_link_tag((request.fullpath == root_path ? "root" : "application"), :media => "all") %>
+  <%= stylesheet_link_tag("root", :media => "all") %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <%= trustauth_url %>
 </head>
 <body onload="window.prettyPrint && prettyPrint()">
 
   <div class="container">
-    <% if notice %><p class="notice"><%= notice %></p><% end %>
-    <% if alert %><p class="alert"><%= alert %></p><% end %>
-    <% if user_signed_in? %>
-      <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "pull-right" %>
-    <% end %>
     <div class="row">
       <div class="span12">
         <%= yield %>
