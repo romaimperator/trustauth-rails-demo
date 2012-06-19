@@ -1,48 +1,21 @@
 <div class="hero-unit">
-  <h1>Hello and welcome to the demo site for TrustAuth.</h1>
+  <h1>Welcome to the offical TrustAuth site.</h1>
 </div>
 <div class="row">
   <div class="span4">
     <h3>What is TrustAuth?</h3>
     <p>TrustAuth is a system for authenticating users. It allow users to be
     authenticated securely and more easily than with traditional passwords and
-    does not require the trust of a third-party.</p>
-    <p><%= link_to "See Overview", "#overview", :class => "btn" %></p>
+    does not require the trust of a third-party such as Facebook or Twitter like OAuth does.</p>
+    <p><%= link_to "See Overview", "overview", :class => "btn" %></p>
   </div>
-  <div class="span4">
-    <h3>How can I get TrustAuth?</h3>
-    <p>Using TrustAuth to login to websites is also easy. All you need to do is install the Foamicator
-    addon in your browser and you are ready to use the enhanced security provided by TrustAuth.</p>
-    <p><%= link_to "Get the addon!", "https://addons.mozilla.org/en-US/firefox/addon/trustauth/", :class => "btn btn-success" %></p>
-  </div>
-  <div class="span4">
-    <h3>How do I add TrustAuth to a site?</h3>
-    <p>The following have plugins for TrustAuth:</p>
-    <ul>
-      <li><%= link_to "Rails", "https://github.com/romaimperator/omniauth-trustauth" %></li>
-      <li><%= link_to "PHP", "https://github.com/romaimperator/trustauth-php" %></li>
-    </ul>
-    <p><%= link_to "See Details", "#server", :class => "btn" %></p>
-  </div>
-</div>
-<div id="info-row-2" class="row">
   <div class="span4">
     <h3>How does TrustAuth work?</h3>
-    <p>The server authenticates the client and uses the public key to associate the client
-    with an account. The addon then takes the user to a url based on success or failure. Private keys are
-    stored in a local SQLite database secured with 256-bit AES encryption.</p>
-    <p><%= link_to "See Details", "#technical", :class => "btn" %></p>
-  </div>
-  <div class="span4">
-    <h3>Who Am I?</h3>
-    <p>My name is Dan Fox and I'm a graduate student at Southern Illinois University Edwardsville.
-    I created TrustAuth to help fix the current issues with using passwords for authentication on websites. If you
-    have questions feel free to join the project IRC in #trustauth on Freenode.</p>
-    <div class="btn-group">
-      <%= link_to (image_tag "email.png"), "mailto:romaimperator@gmail.com", :class => "btn" %>
-      <%= link_to (image_tag "twitter_newbird_blue.png"), "https://twitter.com/romaimperator", :class =>"btn" %>
-      <%= link_to (image_tag "github.png"), "https://github.com/romaimperator", :class =>"btn" %>
-    </div>
+    <p>The server gives the user a hidden message when she views a page with a login form.
+    The addon signs the message using the secret key for the website. After she presses the
+    login button, the server verifies the signature and if valid logs the user in. The secret keys are
+    stored in a local SQLite database secured with 256-bit AES encryption to prevent unauthorized access.</p>
+    <p><%= link_to "See Details", "technical_details", :class => "btn" %></p>
   </div>
   <div class="span4">
     <h3>Project Links</h3>
@@ -52,27 +25,32 @@
     <ul class="unstyled">
       <li><%= link_to "Project Roadmap", "https://github.com/romaimperator/trustauth-firefox/wiki/Roadmap" %></li>
       <li><%= link_to "Get the addon source", "https://github.com/romaimperator/trustauth-firefox" %></li>
-      <li><%= link_to "omniauth-trustauth", "https://github.com/romaimperator/omniauth-trustauth" %></li>
       <li><%= link_to "Get the PHP script", "https://github.com/romaimperator/trustauth-php" %></li>
       <li><%= link_to "Get the demo site source", "https://github.com/romaimperator/trustauth-demo" %></li>
     </ul>
   </div>
 </div>
-<section id="overview">
-  <%= render 'overview' %>
-</section>
-<section id="tutorial">
-  <%= render 'tutorial' %>
-</section>
-<section id="server">
-  <%= render 'server_details' %>
-</section>
-<section id="technical">
-  <%= render 'technical_details' %>
-</section>
-<hr>
-<footer class="footer">
-  <p>Dan Fox</p>
-</footer>
+<div id="info-row-2" class="row">
+  <div class="span4">
+    <h3>How can I get TrustAuth?</h3>
+    <p>Using TrustAuth to login to websites is also easy. All you need to do is install the Firefox
+    addon in your browser and you are ready to use the enhanced security provided by TrustAuth on any
+    website that supports it.</p>
+    <p>
+      <%= link_to "View the tutorial", "tutorial", :class => "btn" %>
+      <%= link_to "Get the addon!", "https://addons.mozilla.org/en-US/firefox/addon/trustauth/", :class => "btn btn-success" %>
+    </p>
+  </div>
+  <div class="span4">
+    <h3>How do I add TrustAuth to a site?</h3>
+    <p>The following have plugins for TrustAuth:</p>
+    <ul>
+      <li><a href="https://github.com/romaimperator/trustauth-php">PHP</a></li>
+      <li><a href="http://wordpress.org/extend/plugins/trustauth/">WordPress</a></li>
+    </ul>
+    <p><%= link_to "See Details", "server_details", :class => "btn" %></p>
+  </div>
+  <div class="span4">
+  </div>
 </div>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
