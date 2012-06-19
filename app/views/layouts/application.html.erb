@@ -20,12 +20,12 @@
       <div class="span12">
         <footer class="footer">
           <div class="row">
-            <div class="span10">
+            <div class="span8 offset2">
               <p>My name is Dan Fox and I'm a graduate student at Southern Illinois University Edwardsville.
               I created TrustAuth to help fix the current issues with using passwords for authentication on websites. If you
               have questions feel free to join the project IRC in #trustauth on Freenode.</p>
             </div>
-            <div class="span10">
+            <div class="span8 offset2">
               <p>I would like to thank the following people and groups:</p>
               <ul>
                 <li><%= link_to "Security Now!", "http://twit.tv/sn" %>,
@@ -39,14 +39,13 @@
               </ul>
             </div>
           </div>
-          <div class="row">
-            <div class="span12">
-              &copy; 2012 Dan Fox
-              <div class="btn-group">
-                <%= link_to (image_tag "email.png"), "mailto:romaimperator@gmail.com", :class => "btn" %>
-                <%= link_to (image_tag "twitter_newbird_blue.png"), "https://twitter.com/romaimperator", :class =>"btn" %>
-                <%= link_to (image_tag "github.png"), "https://github.com/romaimperator", :class =>"btn" %>
-              </div>
+          <hr>
+          <div class="row trustauth-pad10">
+            <div class="span12 small-text text-center">
+              <span class="trustauth-pad20h">&copy; 2012 Dan Fox</span> |
+              <%= link_to "email me", "mailto:romaimperator@gmail.com", :class => "trustauth-pad20h" %> |
+              <%= link_to "tweet me", "https://twitter.com/romaimperator", :class => "trustauth-pad20h" %> |
+              <%= link_to "checkout my GitHub", "https://github.com/romaimperator", :class => "trustauth-pad20h" %>
             </div>
           </div>
         </footer>
