@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'devise'
 gem 'omniauth-trustauth', :git => 'git://github.com/romaimperator/omniauth-trustauth.git'
 gem 'mysql2'
+gem 'unicorn'
 
 
 # Gems used only for assets and not required
