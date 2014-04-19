@@ -8,18 +8,29 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
+ * require_self
 */
+// First import journal variables
+@import "bootswatch/slate/variables";
+
+/*
+ * require bootstrap_and_overrides
+*/
+@import "bootstrap_and_overrides";
 
 // Then bootstrap itself
-@import "bootstrap";
+//@import "twitter/bootstrap";
 
 // Bootstrap body padding for fixed navbar
 body { padding-top: 60px; }
 
 // Responsive styles go here in case you want them
-@import "bootstrap-responsive";
+//@import "twitter/bootstrap/responsive";
+
+// And finally bootswatch style itself
+//@import "bootswatch/slate/bootswatch";
 
 // Whatever application styles you have go last
 @import "prettify";
 @import "trustauth";
+
