@@ -7,8 +7,8 @@
 # a more verbose configuration using more features.
 
 # unicorn_rails -c /home/deploy/current/config/unicorn.rb -E production -D
-app_path = "/home/deploy/TrustAuth/current"
-cap_root = "/home/deploy/TrustAuth"
+app_path = "/home/deploy/trustauth.com/current"
+cap_root = "/home/deploy/trustauth.com"
 app_shared = "#{cap_root}/shared"
 
 working_directory "#{app_path}"
