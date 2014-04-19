@@ -10,6 +10,7 @@ gem 'omniauth-trustauth', :git => 'git://github.com/romaimperator/omniauth-trust
 gem 'mysql2'
 gem 'unicorn'
 
+gem 'mina', :group => :development
 gem 'sqlite3', :group => :development
 
 # Gems used only for assets and not required
