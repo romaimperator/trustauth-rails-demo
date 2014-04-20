@@ -105,7 +105,9 @@ task :deploy => :environment do
       #queue 'log "failed deployment"'
     end
   end
+end
 
+namespace "deploy" do
   task :restart do
     queue "test -s \"#{pid}\" && kill -USR2 `cat #{pid}`"
     #queue 'touch tmp/restart.txt'
