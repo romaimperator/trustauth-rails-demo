@@ -13,7 +13,7 @@ app_shared = "#{cap_root}/shared"
 
 working_directory "#{app_path}"
 preload_app true
-listen '/tmp/sockets/trustauth_unicorn.sock', :backlog => 2048#, :tcp_nopush => true # by default Unicorn listens on port 8080
+listen "#{app_shared}/tmp/unicorn.sock", :backlog => 2048#, :tcp_nopush => true # by default Unicorn listens on port 8080
 timeout 30
 worker_processes 4 # this should be >= nr_cpus
 pid "#{app_shared}/pids/unicorn.pid"
