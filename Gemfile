@@ -5,6 +5,7 @@ gem 'rails', '3.2.16'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'skylight'
 gem 'devise'
 gem 'omniauth-trustauth', :git => 'git://github.com/romaimperator/omniauth-trustauth.git'
 gem 'mysql2'
