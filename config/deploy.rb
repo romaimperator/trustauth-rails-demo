@@ -78,7 +78,7 @@ set :deploy_to, '/home/deploy/trustauth.com'
 set :rvm_path, '/usr/local/rvm/bin/rvm'
 set :pid, "/home/deploy/trustauth.com/shared/pids/unicorn.pid"
 
-set :shared_paths, ['config/database.yml', 'log']
+set :shared_paths, ['config/database.yml', 'log', 'tmp']
 
 task :environment do
   #invoke :'rvm:use[2.1.0]'
