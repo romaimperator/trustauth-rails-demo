@@ -1,97 +1,99 @@
-<div class="hero-unit">
-  <h1 class="text-center"><span class="trust-tan">Technical</span><span class="auth-green">Details</span></h1>
-</div>
-<div class="page-header">
-  <h1>Implemetation</h1>
-</div>
-<div class="row">
-  <div class="span6">
-    <h3>Salts</h3>
-    <p>All of the salts used in the add-on are randomly generated when they are
-    first needed and stored in the database. This prevents the salts from being
-    known ahead of time. Currently there are three different salts used in the
-    add-on. First is the password salt. This salt is used along with the master
-    password for deriving an encryption key. Second is the salt used as the
-    initialization vector for the AES encryption. The third and final salt is
-    used in the hash of the password-derived key that is stored in the database
-    and used to verify that the correct master password is entered.</p>
+<%= cache('static/technical_details') do %>
+  <div class="hero-unit">
+    <h1 class="text-center"><span class="trust-tan">Technical</span><span class="auth-green">Details</span></h1>
   </div>
-  <div class="span6">
-    <h3>Key Usage</h3>
-    <p>The first time the add-on is unlocked it prompts for a master password.
-    The encryption key is then kept in memory and used to encrypt the public
-    and private keys before they are written into the database. It is also used
-    upon retrieval to decrypt the keys for use in authentication. When the
-    browser is closed the add-on is unloaded from memory and the key is gone.
-    After Firefox is relaunched the add-on will need to be unlocked again. The
-    password will be verified to match the stored hash in the database.</p>
+  <div class="page-header">
+    <h1>Implemetation</h1>
   </div>
-</div>
-<div class="row">
-  <div class="span6">
-    <h3>Key Storage</h3>
-    <p>The keys are stored in an SQLite database. Both the public and private
-    keys are encrypted with AES using a randomly generated 256-bit key. This key
-    is stored in the database encrypted with a key derived from the master
-    password. This key is derived using 2048 iterations of PBKDFv2 using the
-    master password and randomly generated salt.</p>
+  <div class="row">
+    <div class="span6">
+      <h3>Salts</h3>
+      <p>All of the salts used in the add-on are randomly generated when they are
+      first needed and stored in the database. This prevents the salts from being
+      known ahead of time. Currently there are three different salts used in the
+      add-on. First is the password salt. This salt is used along with the master
+      password for deriving an encryption key. Second is the salt used as the
+      initialization vector for the AES encryption. The third and final salt is
+      used in the hash of the password-derived key that is stored in the database
+      and used to verify that the correct master password is entered.</p>
+    </div>
+    <div class="span6">
+      <h3>Key Usage</h3>
+      <p>The first time the add-on is unlocked it prompts for a master password.
+      The encryption key is then kept in memory and used to encrypt the public
+      and private keys before they are written into the database. It is also used
+      upon retrieval to decrypt the keys for use in authentication. When the
+      browser is closed the add-on is unloaded from memory and the key is gone.
+      After Firefox is relaunched the add-on will need to be unlocked again. The
+      password will be verified to match the stored hash in the database.</p>
+    </div>
   </div>
-</div>
-<div class="page-header">
-  <h1>Security Considerations</h1>
-</div>
-<div class="row">
-  <div class="span6">
-    <h4>The Database</h4>
-    <p>The database should be safe and unusable without the master password to
-    regenerate the encryption key. All of the keys are kept encrypted. The
-    domains and the association between key pairs and the domains are visible
-    in plaintext. This is to facilitate much faster access because otherwise to
-    find the correct key pair for a domain every single domain would need to be
-    decrypted and checked in order to find the correct one.</p>
+  <div class="row">
+    <div class="span6">
+      <h3>Key Storage</h3>
+      <p>The keys are stored in an SQLite database. Both the public and private
+      keys are encrypted with AES using a randomly generated 256-bit key. This key
+      is stored in the database encrypted with a key derived from the master
+      password. This key is derived using 2048 iterations of PBKDFv2 using the
+      master password and randomly generated salt.</p>
+    </div>
   </div>
-  <div class="span6">
-    <h4>The Add-on</h4>
-    <p>All of the add-on code is kept inside an annoymous function so that there
-    is no publically accessible interface to the object. Listeners are setup to
-    facillitate the functionality. The Forge library used by the add-on is now
-    loaded using the Firefox javascript modules. When installed, this add-on
-    doesn't put anything in the global namespace.</p>
+  <div class="page-header">
+    <h1>Security Considerations</h1>
   </div>
-</div>
-<div class="row">
-  <div class="span6">
-    <h4>The Authentication Process</h4>
-    <p>Currently the data from the server is unverifiable. The domain and MAC
-    are used as a check but do not allow the add-on to verify the server that
-    it came from. A traditional SSL connection to the webserver will negate this
-    issue however. Also, when the server receives the response it IS able to
-    verify that the original message and the response from the client weren't
-    modified.</p>
+  <div class="row">
+    <div class="span6">
+      <h4>The Database</h4>
+      <p>The database should be safe and unusable without the master password to
+      regenerate the encryption key. All of the keys are kept encrypted. The
+      domains and the association between key pairs and the domains are visible
+      in plaintext. This is to facilitate much faster access because otherwise to
+      find the correct key pair for a domain every single domain would need to be
+      decrypted and checked in order to find the correct one.</p>
+    </div>
+    <div class="span6">
+      <h4>The Add-on</h4>
+      <p>All of the add-on code is kept inside an annoymous function so that there
+      is no publically accessible interface to the object. Listeners are setup to
+      facillitate the functionality. The Forge library used by the add-on is now
+      loaded using the Firefox javascript modules. When installed, this add-on
+      doesn't put anything in the global namespace.</p>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="span6">
-    <h3>Technical Limitations</h3>
-    <p>Right now there are a few major limitations with the TrustAuth system. These include the following:</p>
-    <ol>
-      <li>The keys are much harder to move than passwords.</li>
-      <li>The authentication process requires either browser support or plugin support. Mobile devices are an example. Unlike password managers, TrustAuth cannot be a separate app from the browser.</li>
-      <li>Loss of the private keys from something such as a hard drive crash. Other than backing up the keys to a device you have with you there aren't very many possible solutions.
-      For most sites, it should be possible to implement some kind of email recovery but there's still the problem of accessing your email account.</li>
-      <li>Forgetting your master password. This one is a very tough challenge since it must be very difficult to recover the keys without the correct password otherwise losing the database
-      would be a very big disaster.</li>
-    </ol>
+  <div class="row">
+    <div class="span6">
+      <h4>The Authentication Process</h4>
+      <p>Currently the data from the server is unverifiable. The domain and MAC
+      are used as a check but do not allow the add-on to verify the server that
+      it came from. A traditional SSL connection to the webserver will negate this
+      issue however. Also, when the server receives the response it IS able to
+      verify that the original message and the response from the client weren't
+      modified.</p>
+    </div>
   </div>
-  <div class="span6">
-    <h3>Solutions</h3>
-    <p>There are a few solutions that I think mitigate several of the above limitations.</p>
-    <dl class="dl-horizontal">
-      <dt>Movement:</dt><dd>This limitation should be very much mitigated with the planned import/export feature.</dd>
-      <dt>Mobile:</dt><dd>Until mobile browsers either have plugins or native support for TrustAuth, passwords will still need to be used to login.</dd>
-      <dt>Crashes:</dt><dd>With the import/export feature this should as well be mitigated because the database can be backed up onto another device and/or synced to cloud backup systems.</dd>
-      <dt>Master Password:</dt><dd>After giving the user ample notification of the risks, forgetting your master password could be mitigated by allowing exporting a decrypted database. This database could then be stored
-      on something local such as a flash drive.</dd>
-    <dl>
+  <div class="row">
+    <div class="span6">
+      <h3>Technical Limitations</h3>
+      <p>Right now there are a few major limitations with the TrustAuth system. These include the following:</p>
+      <ol>
+        <li>The keys are much harder to move than passwords.</li>
+        <li>The authentication process requires either browser support or plugin support. Mobile devices are an example. Unlike password managers, TrustAuth cannot be a separate app from the browser.</li>
+        <li>Loss of the private keys from something such as a hard drive crash. Other than backing up the keys to a device you have with you there aren't very many possible solutions.
+        For most sites, it should be possible to implement some kind of email recovery but there's still the problem of accessing your email account.</li>
+        <li>Forgetting your master password. This one is a very tough challenge since it must be very difficult to recover the keys without the correct password otherwise losing the database
+        would be a very big disaster.</li>
+      </ol>
+    </div>
+    <div class="span6">
+      <h3>Solutions</h3>
+      <p>There are a few solutions that I think mitigate several of the above limitations.</p>
+      <dl class="dl-horizontal">
+        <dt>Movement:</dt><dd>This limitation should be very much mitigated with the planned import/export feature.</dd>
+        <dt>Mobile:</dt><dd>Until mobile browsers either have plugins or native support for TrustAuth, passwords will still need to be used to login.</dd>
+        <dt>Crashes:</dt><dd>With the import/export feature this should as well be mitigated because the database can be backed up onto another device and/or synced to cloud backup systems.</dd>
+        <dt>Master Password:</dt><dd>After giving the user ample notification of the risks, forgetting your master password could be mitigated by allowing exporting a decrypted database. This database could then be stored
+        on something local such as a flash drive.</dd>
+      <dl>
+    </div>
   </div>
-</div>
+<% end %>
