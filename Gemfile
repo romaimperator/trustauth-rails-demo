@@ -5,7 +5,7 @@ gem 'rails', '3.2.16'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'skylight'
+#gem 'skylight'
 gem 'devise'
 gem 'omniauth-trustauth', :git => 'git://github.com/romaimperator/omniauth-trustauth.git'
 gem 'mysql2'
@@ -26,6 +26,11 @@ group :assets do
 
   gem 'uglifier', '~> 2.3.2'
   gem 'therubyracer'
+  gem 'twitter-bootswatch-rails', '~> 2.3.2'
+end
+
+group :profile do
+  gem 'ruby-prof'
   gem 'twitter-bootswatch-rails', '~> 2.3.2'
 end
 
