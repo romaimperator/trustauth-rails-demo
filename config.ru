@@ -6,9 +6,4 @@ if Rails.env.profile?
   use Rack::RubyProf, :path => 'tmp/profile'
 end
 
-if Rails.env.production?
-  require 'gctools/oobgc'
-  use(GC::OOB::UnicornMiddleware)
-end
-
 run RailsDemo::Application
