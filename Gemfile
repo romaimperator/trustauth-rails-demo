@@ -29,7 +29,7 @@ group :assets do
   gem 'twitter-bootswatch-rails', '~> 2.3.2'
 end
 
-group :profile do
+group :development do
   gem 'ruby-prof'
   gem 'twitter-bootswatch-rails', '~> 2.3.2'
 end
