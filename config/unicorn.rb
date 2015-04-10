@@ -15,7 +15,7 @@ working_directory "#{app_path}"
 preload_app true
 listen "#{app_shared}/tmp/unicorn.sock", :backlog => 2048#, :tcp_nopush => true # by default Unicorn listens on port 8080
 timeout 30
-worker_processes 4 # this should be >= nr_cpus
+worker_processes 2 # this should be >= nr_cpus
 pid "#{app_shared}/pids/unicorn.pid"
 stderr_path "#{app_shared}/log/unicorn.log"
 stdout_path "#{app_shared}/log/unicorn.log"
