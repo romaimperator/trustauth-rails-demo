@@ -1,8 +1,8 @@
 # Change to match your CPU core count
-workers 2
+workers 1
 
 # Min and Max threads per worker
-threads 1, 1
+threads 1, 4
 
 root_dir = File.expand_path("../../../..", __FILE__)
 app_dir = File.expand_path("../..", __FILE__)
@@ -11,7 +11,7 @@ shared_dir = "#{root_dir}/shared"
 directory = app_dir
 rackup "#{app_dir}/config.ru"
 daemonize
-preload_app!
+#preload_app!
 
 # Default to production
 rails_env = ENV['RAILS_ENV'] || "production"
