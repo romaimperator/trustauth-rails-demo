@@ -2,7 +2,7 @@
 workers 1
 
 # Min and Max threads per worker
-threads 1, 4
+threads 1, 2
 
 root_dir = File.expand_path("../../../..", __FILE__)
 app_dir = File.expand_path("../..", __FILE__)
