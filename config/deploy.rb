@@ -76,7 +76,8 @@ set :user, 'deploy'
 set :repository, 'https://github.com/romaimperator/trustauth-rails-demo.git'
 set :deploy_to, '/home/deploy/trustauth.com'
 set :rvm_path, '/usr/local/rvm/bin/rvm'
-set :pid, "/home/deploy/trustauth.com/shared/pids/unicorn.pid"
+#set :pid, "/home/deploy/trustauth.com/shared/pids/unicorn.pid"
+set :pid, "/home/deploy/trustauth.com/shared/pids/puma.pid"
 
 set :shared_paths, ['config/database.yml', 'log', 'tmp']
 

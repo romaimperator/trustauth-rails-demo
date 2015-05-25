@@ -11,6 +11,7 @@ shared_dir = "#{root_dir}/shared"
 directory = app_dir
 rackup "#{app_dir}/config.ru"
 daemonize
+preload_app!
 
 # Default to production
 rails_env = ENV['RAILS_ENV'] || "production"
