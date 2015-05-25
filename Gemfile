@@ -26,12 +26,12 @@ group :assets do
   # gem 'therubyracer', :platform => :ruby
 
   gem 'uglifier', '~> 2.3.2'
-  gem 'therubyracer'
+  gem 'therubyracer', '~> 0.12.2'
   gem 'twitter-bootswatch-rails', '~> 2.3.2'
 end
 
 group :development do
-  gem 'ruby-prof'
+  #gem 'ruby-prof'
   gem 'twitter-bootswatch-rails', '~> 2.3.2'
 end
 
