@@ -8,9 +8,10 @@ gem 'rails', '5.0.0.beta2'
 #gem 'skylight'
 gem 'devise'
 gem 'omniauth-trustauth', :git => 'git://github.com/romaimperator/omniauth-trustauth.git'
-#gem 'mysql2'
-gem 'unicorn'
+gem 'mysql2'
+#gem 'unicorn'
 gem 'puma'
+gem 'passenger'
 
 gem 'mina', :group => :development
 gem 'sqlite3', :group => :development

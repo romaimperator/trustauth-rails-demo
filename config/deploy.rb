@@ -71,7 +71,7 @@ require 'mina/bundler'
 require 'mina/rbenv'
 require 'mina/rails'
 
-set :domain, 'trustauth.com'
+set :domain, '104.236.97.89'#'trustauth.com'
 set :user, 'deploy'
 set :repository, 'https://github.com/romaimperator/trustauth-rails-demo.git'
 set :deploy_to, '/home/deploy/trustauth.com'
