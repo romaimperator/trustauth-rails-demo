@@ -11,10 +11,16 @@
 */
 
 // Import the slate bootswatch theme
-@import "slate/loader";
-@import "slate/bootswatch";
-
-// Whatever application styles you have go last
-@import "prettify";
-@import "trustauth";
-
+//@import "slate/loader.css.less";
+//@import "slate/bootswatch.css.less";
+//
+//// Whatever application styles you have go last
+//@import "prettify";
+//@import "trustauth";
+/*
+ *= require_self
+ *= require slate/loader
+ *= require slate/bootswatch
+ *= require prettify
+ *= require trustauth
+ */
